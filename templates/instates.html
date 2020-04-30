@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block div %}
+<header class="masthead" style="background-image: url('https://cdn2.vectorstock.com/i/1000x1000/21/16/polygonal-2d-mesh-map-of-india-vector-23642116.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Statistics for Indian States</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <p>The input is case-sensitive.</p>
+            <form class="form-inline my-2 my-lg-0" method="post" action="/instates">
+                <input class="form-control mr-sm-4" type="search" name="sname" placeholder="State/UT Name" aria-label="Search">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+            <br><br>
+            {% if data3 %}
+                <center>
+                <h3 style = "color: CadetBlue"> Statistics for {{data3['loc']}}</h3>
+                <br>
+                </center>
+                <ul class = "list-group" style="list-style-type:none; color: DimGrey">
+                    <li class="list-group-item">Total Cases : {{data3['totalConfirmed']}}</li>
+                    <li class="list-group-item">Discharged : {{data3['discharged']}}</li>
+                    <li class="list-group-item">Deaths : {{data3['deaths']}}</li>
+                    <li class="list-group-item">Confirmed cases Indian : {{data3['confirmedCasesIndian']}}</li>
+                    <li class="list-group-item">Confirmed cases Foreign : {{data3['confirmedCasesForeign']}}</li>
+                </ul>
+                <br><br>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

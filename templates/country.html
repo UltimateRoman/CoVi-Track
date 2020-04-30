@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block div %}
+<header class="masthead" style="background-image: url('https://assets.wallpapersin4k.org/uploads/2017/04/Cool-World-Map-Wallpaper-9.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Statistics by country</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <center>
+                <form class="form-inline my-2 my-lg-0" method="post" action="/country">
+                    <input class="form-control mr-sm-2" type="search" name="cname" placeholder="Country Name" aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+            </center>
+            <br><br>
+            {% if data1 %}
+                <center>
+                <h3 style = "color: CadetBlue"> Statistics for {{data1['country']}}</h3>
+                <br>
+                <img src="{{data1["countryInfo"]["flag"]}}" alt="countryflag">
+                </center>
+                <br><br>
+                <ul class = "list-group" style="list-style-type:none; color: DimGrey">
+                    <li class="list-group-item">Total Cases : {{data1['cases']}}</li>
+                    <li class="list-group-item">Active Cases : {{data1['active']}}</li>
+                    <li class="list-group-item">Recovered : {{data1['recovered']}}</li>
+                    <li class="list-group-item">Critical Cases : {{data1['critical']}}</li>
+                    <li class="list-group-item">Deaths : {{data1['deaths']}}</li>
+                    <li class="list-group-item">Tests : {{data1['tests']}}</li>
+                    <li class="list-group-item">Cases reported today : {{data1['todayCases']}}</li>
+                    <li class="list-group-item">Deaths reported today : {{data1['todayDeaths']}}</li>
+                    <li class="list-group-item">Cases per one million : {{data1['casesPerOneMillion']}}</li>
+                    <li class="list-group-item">Deaths per one million : {{data1['deathsPerOneMillion']}}</li>
+                    <li class="list-group-item">Tests per one million : {{data1['testsPerOneMillion']}}</li>
+                </ul>
+                <br><br>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

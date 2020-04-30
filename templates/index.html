@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block div %}
+<header class="masthead" style="background-image: url('https://images.newscientist.com/wp-content/uploads/2020/01/27123401/f0070229-coronavirus_artwork-spl.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>CoVi-Track</h1>
+                    <br>
+                    <h3>CoViD-19 Statistics tracking and Self-symptom monitoring</h3>
+                    <span class="subheading">By Athul Sanjose</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h3 style = "color: CadetBlue"> Global Statistics</h3>
+            <br>
+            <ul class = "list-group" style="list-style-type:none; color: DimGrey">
+                <li class="list-group-item">Total Cases : {{data0['cases']}}</li>
+                <li class="list-group-item">Active Cases : {{data0['active']}}</li>
+                <li class="list-group-item">Recovered : {{data0['recovered']}}</li>
+                <li class="list-group-item">Critical Cases : {{data0['critical']}}</li>
+                <li class="list-group-item">Deaths : {{data0['deaths']}}</li>
+                <li class="list-group-item">Tests : {{data0['tests']}}</li>
+                <li class="list-group-item">Cases reported today : {{data0['todayCases']}}</li>
+                <li class="list-group-item">Deaths reported today : {{data0['todayDeaths']}}</li>
+                <li class="list-group-item">Cases per one million : {{data0['casesPerOneMillion']}}</li>
+                <li class="list-group-item">Deaths per one million : {{data0['deathsPerOneMillion']}}</li>
+                <li class="list-group-item">Tests per one million : {{data0['testsPerOneMillion']}}</li>
+            </ul>
+            <br><br>
+        </div>
+    </div>
+</div>
+{% endblock %}
